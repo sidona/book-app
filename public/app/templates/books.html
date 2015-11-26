@@ -1,0 +1,30 @@
+<div>
+    {{books.summaryData.bookCount}} Books-
+    {{books.summaryData.readerCount}} Readers-
+    {{books.summaryData.grandTotalMinutes}} total minutes read
+</div>
+
+
+<h3>All Books</h3>
+<div>
+    <ul>
+        <li ng-repeat="book in books.allBooks">{{book.title}} - {{book.author}}
+            <a href="#/EditBook/{{book.book_id}}">edit</a>
+            <a ng-click="books.deleteBook(book.book_id)" href="">delete</a>
+        </li>
+    </ul>
+</div>
+
+<a href="#/AddBook">Add new book</a>
+<a href="#/EditBook/{{books.currentUser.lastBookEdited.book_id}}">Open last Edited</a>
+<h3>All Readers</h3>
+<div>
+    <ul>
+        <li ng-repeat="reader in books.allReaders">{{reader.name}} - {{books.getBadge(reader.totalMinutesRead)}}</li>
+    </ul>
+</div>
+
+<h3>Current Favorite Book</h3>
+<div>
+    {{books.favoriteBook}}
+</div>
